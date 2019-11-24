@@ -12,11 +12,11 @@ from data.data_processing import get_gene_expression_data
 def init_arg():
     parser = argparse.ArgumentParser()
     parser.add_argument("--gene_expression_filename", default='data/Zebrafish/GE_mvg.csv')
-    parser.add_argument("--hidden_dimensions", default=[512, 256], type=list)
+    parser.add_argument("--hidden_dimensions", default=[512, 256], nargs="*", type=int)
     parser.add_argument("--latent_dimension", default=50, type=int)
     parser.add_argument("--batch_size", default=128, type=int)
     parser.add_argument("--epochs", default=100, type=int)
-    parser.add_argument("--learning_rate", default=0.001, type=int)
+    parser.add_argument("--learning_rate", default=0.001, type=float)
     parser.add_argument("--model_name", default='zebrafish50test')
 
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     gene_expression_normalized = get_gene_expression_data(args.gene_expression_filename)
 
     DiffVAE = DisentangledDiffVAE(original_dim=gene_expression_normalized.shape[1], latent_dim=args.latent_dimension,
-                                  hidden_layers_dim=args.h_dims,
+                                  hidden_layers_dim=args.hidden_dimensions,
                                   batch_size=args.batch_size, epochs=args.epochs, learning_rate=args.learning_rate)
 
     DiffVAE.train_vae(gene_expression_normalized,

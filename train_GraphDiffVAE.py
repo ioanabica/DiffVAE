@@ -14,10 +14,10 @@ from data.build_graphs import build_correlation_graph
 def init_arg():
     parser = argparse.ArgumentParser()
     parser.add_argument("--gene_expression_filename", default='data/Zebrafish/GE_mvg.csv')
-    parser.add_argument("--hidden_dimensions", default=[512], type=list)
+    parser.add_argument("--hidden_dimensions", default=[512], nargs="*", type=int)
     parser.add_argument("--latent_dimension", default=50, type=int)
     parser.add_argument("--epochs", default=200, type=int)
-    parser.add_argument("--learning_rate", default=0.0001, type=int)
+    parser.add_argument("--learning_rate", default=0.0001, type=float)
     parser.add_argument("--model_name", default='graph_test')
 
 

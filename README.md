@@ -18,7 +18,7 @@ the biological factors of variation in the gene expression data.
 
 This allows us to develop methodology for identifying the cell types in a dataset using DiffVAE. The 
 pipeline is illustred in the following figure: 
-![DiffVAE-Pipeline](./figures/identify_cells_pipeline.pdf)
+![DiffVAE-Pipeline](./figures/identify_cells_pipeline_github.png)
 
 
 To train DiffVAE using gene expression data, run the following command with the chosen command line arguments. 
@@ -29,7 +29,7 @@ python train_DiffVAE.py
 ```
 Options :
 		--gene_expression_filename 'data/Zebrafish/GE_mvg.csv'	# Path to file containing the log normalized gene expression data.
-		--hidden_dimensions [512, 256] # List of hidden dimensions for the layers in the encoder.
+		--hidden_dimensions 512 256 # List of hidden dimensions for the layers in the encoder.
 		                                 The layers in the decoder will have the same dimensions in reversed order.
 		--latent_dimension 50 # Size of latent dimension.
 		--batch_size 128 # Batch size to use during training.
@@ -39,7 +39,7 @@ Options :
 
 Example usage:
 ```bash
-python train_DiffVAE.py --gene_expression_filename 'data/Zebrafish/GE_mvg.csv' --hidden_dimensions [512, 256] \
+python train_DiffVAE.py --gene_expression_filename 'data/Zebrafish/GE_mvg.csv' --hidden_dimensions 512 256 \
 --latent_dimension 50 --batch_size 128 --learning_rate 0.001 --model_name 'DiffVAE_test'
 ```
 
@@ -56,7 +56,7 @@ and for performing cell perturbations. These steps are illustrated on the Zebraf
 Graph-DiffVAE is a graph variational autoencoder where the encoder and the decoder networks 
 are graph convolutional networks. Graph-DiffVAE can be used to explore links between cells in an unsupervised way as 
 illustrated in the following figure: 
-![Graph-DiffVAE-Pipeline](./figures/graph_predictions_github.pdf)
+![Graph-DiffVAE-Pipeline](./figures/graph_predictions_github.png)
 
 To train Graph-DiffVAE using gene expression data, run the following command with the chosen command line arguments. 
 
@@ -75,7 +75,7 @@ Options :
 
 Example usage:
 ```bash
-python train_GraphDiffVAE.py --gene_expression_filename 'data/Zebrafish/GE_mvg.csv' --hidden_dimensions [512] \
+python train_GraphDiffVAE.py --gene_expression_filename 'data/Zebrafish/GE_mvg.csv' --hidden_dimensions 512 \
 --latent_dimension 50 --learning_rate 0.0001 --model_name 'GraphDiffVAE_test'
 ```
 

@@ -75,7 +75,6 @@ class DiffVAE(BaseVAE):
 
     def compile_vae(self):
         self.vae = Model(self.input_placeholder, self.x_decoded_mean)
-        print(self.vae.summary())
 
         adam_optimizer = optimizers.Adam(lr=self.learning_rate)
         self.vae.compile(optimizer=adam_optimizer, loss=self.vae_loss_function)
