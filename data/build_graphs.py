@@ -33,6 +33,13 @@ def build_adj_matrix(node_data_df, num_neighbors):
     return adj_matrix
 
 
+def build_correlation_graph(gene_expression_normalized, num_neighbors):
+    adj_matrix = build_adj_matrix(pd.DataFrame(gene_expression_normalized.T), num_neighbors)
+    node_features = gene_expression_normalized
+
+    return adj_matrix, node_features
+
+
 def remove_edges_from_stem_cells(adj_matrix, labels):
     for i in range(len(labels)):
         for j in range(len(labels)):
