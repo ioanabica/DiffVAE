@@ -39,7 +39,7 @@ class NeuralNetwork(BaseNeuralNetwork):
 
         print (self.nn_model.summary())
 
-    def train_nn(self, data, labels):
+    def train_nn(self, data, labels, neural_network_filename):
         self.compile_nn()
 
         # Hot encoding
@@ -68,4 +68,4 @@ class NeuralNetwork(BaseNeuralNetwork):
         score = self.nn_model.evaluate(data[perm], labels[perm], verbose=1)
         print("All data accuracy:", score[1])
 
-        self.save_neural_network(neural_network_filename='Saved-Models/NeuralNetworks/simple_nn.h5')
+        self.save_neural_network(neural_network_filename=neural_network_filename)
