@@ -1,4 +1,4 @@
-# Unsupervised generative and graph neural methods for modelling cell differentiation
+# [Unsupervised generative and graph neural methods for modelling cell differentiation](https://www.nature.com/articles/s41598-020-66166-8)
 Ioana Bica, Helena Andres-Terre, Ana Cvejic, Pietro Lio
 
 ## Dependencies
